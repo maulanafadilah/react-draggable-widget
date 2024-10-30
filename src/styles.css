@@ -1,0 +1,69 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.side-widget-container {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  box-shadow: 5px 3px 15px 0px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  background-color: #ffffff;
+  border-bottom-left-radius: 100px;
+  border-bottom-right-radius: 100px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  transition: width 0.3s ease;
+  width: 49px;
+  overflow: hidden;
+  padding: 5px;
+  margin: 10px;
+  float: right;
+}
+
+/* Positioning for left and right sides */
+.left-side {
+  left: 10px;
+  right: auto;
+}
+
+.right-side {
+  right: 100vw;
+  flex-direction: row-reverse; /* Align content to the right */
+}
+
+.side-widget-container {
+  width: 68px;
+  transition: width 1.2s;
+}
+
+/* New hover effect for mg-icon */
+.side-widget-container:not(.loading).hovered {
+  width: 132px;
+}
+
+.side-widget-container:not(.loading).hovered .svg-with-tooltip {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+#floating-icon svg {
+  flex: none;
+}
+
+#floating-icon .rotate {
+  transform: rotate(360deg);
+}
+
+.svg-with-tooltip {
+  position: relative;
+  display: none;
+  transition: display 1.2s;
+}
