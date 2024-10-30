@@ -57,7 +57,7 @@ export default function App() {
         position={position}
         onDrag={handleDrag}
         onStop={handleStop}
-        grid={[25, 25]}
+        grid={[1, 1]}
         scale={1}
       >
         <div
