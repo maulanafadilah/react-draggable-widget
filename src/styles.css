@@ -8,7 +8,7 @@
   position: absolute;
   top: 50%;
   box-shadow: 5px 3px 15px 0px rgba(0, 0, 0, 0.2);
-  z-index: 9999;
+  z-index: 1;
   background-color: #ffffff;
   border-bottom-left-radius: 100px;
   border-bottom-right-radius: 100px;
@@ -18,7 +18,7 @@
   align-items: center;
   transition: width 0.3s ease;
   width: 49px;
-  overflow: hidden;
+  /* overflow: hidden; */
   padding: 5px;
   margin: 10px;
   float: right;
@@ -52,6 +52,7 @@
   align-items: center;
   margin-left: 12px;
   margin-right: 12px;
+  transition: display 1.2s;
 }
 
 #floating-icon svg {
@@ -66,4 +67,34 @@
   position: relative;
   display: none;
   transition: display 1.2s;
+}
+
+.widget-body {
+  position: relative;
+}
+
+/* Tooltip text */
+.tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #5521b5;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  opacity: 0;
+  z-index: 9999;
+  margin-left: 10;
+  transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when hovering over the tooltip container */
+.svg-with-tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.svg-with-tooltip:hover {
+  display: inline-block;
 }

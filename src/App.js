@@ -9,6 +9,7 @@ export default function App() {
   const [position, setPosition] = useState({ x: 0, y: 50 });
   const [isRightSide, setIsRightSide] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
+  const [tooltip, setTooltip] = useState(false);
 
   const updateSide = (x) => {
     const threshold = window.innerWidth / 2;
@@ -72,6 +73,7 @@ export default function App() {
             zIndex: 9999,
             borderTopLeftRadius: isRightSide ? 100 : 10,
             borderTopRightRadius: isRightSide ? 10 : 100,
+            overflow: tooltip ? "visible" : "hidden",
           }}
         >
           <svg
@@ -155,7 +157,11 @@ export default function App() {
             </svg>
 
             {widgetState !== "loading" && (
-              <div className="svg-with-tooltip">
+              <div
+                className="svg-with-tooltip"
+                onMouseEnter={() => setTooltip(true)}
+                onMouseLeave={() => setTooltip(false)}
+              >
                 {widgetState === "idle" && (
                   <div
                     style={{
@@ -185,7 +191,14 @@ export default function App() {
                         fill="#5521B5"
                       />
                     </svg>
-                    {/* <span className="tooltip-text">Invite Bot</span> */}
+                    <span
+                      className="tooltip-text"
+                      style={{
+                        left: isRightSide ? "-350%" : "150%",
+                      }}
+                    >
+                      Invite Bot
+                    </span>
                   </div>
                 )}
 
@@ -214,7 +227,14 @@ export default function App() {
                         fill="#E02424"
                       />
                     </svg>
-                    {/* <span className="tooltip-text">Pause Recording</span> */}
+                    <span
+                      className="tooltip-text"
+                      style={{
+                        left: isRightSide ? "-350%" : "150%",
+                      }}
+                    >
+                      Pause Recording
+                    </span>
                   </div>
                 )}
 
@@ -243,7 +263,14 @@ export default function App() {
                         fill="#5521B5"
                       />
                     </svg>
-                    {/* <span className="tooltip-text">Resume Recording</span> */}
+                    <span
+                      className="tooltip-text"
+                      style={{
+                        left: isRightSide ? "-350%" : "150%",
+                      }}
+                    >
+                      Resume Recording
+                    </span>
                   </div>
                 )}
               </div>
